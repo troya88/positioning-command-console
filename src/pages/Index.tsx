@@ -1,12 +1,19 @@
-// Update this page (the content is just a fallback if you fail to update the page)
 
-const Index = () => {
+import React from 'react';
+import Terminal from '../components/Terminal';
+import { TerminalProvider } from '../contexts/TerminalContext';
+
+const Index: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-br from-black to-gray-900 p-4 sm:p-8">
+      <div className="w-full max-w-5xl h-[80vh] md:h-[85vh] overflow-hidden rounded-lg shadow-2xl border border-terminal-accent/20">
+        <TerminalProvider>
+          <Terminal />
+        </TerminalProvider>
       </div>
+      <footer className="mt-4 text-xs text-gray-500">
+        © {new Date().getFullYear()} Troy Assoignon | Positioning Command Center
+      </footer>
     </div>
   );
 };

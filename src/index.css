@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -33,22 +34,6 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
@@ -79,14 +64,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -95,7 +72,67 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  html, body {
+    @apply bg-terminal-background text-terminal-foreground;
+    font-family: "SF Mono", Menlo, Monaco, "Courier New", monospace;
+    overflow: hidden;
+  }
+
+  #root {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    position: relative;
+  }
+}
+
+.glass-panel {
+  @apply backdrop-blur-md bg-black/20 border border-white/10;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.terminal-window {
+  @apply glass-panel;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.terminal-header {
+  @apply bg-black/40 flex items-center p-2 border-b border-terminal-muted/30;
+}
+
+.terminal-body {
+  @apply p-4 md:p-6 overflow-auto;
+  height: calc(100% - 46px);
+}
+
+.command-line {
+  @apply flex items-center;
+}
+
+.prompt {
+  @apply text-terminal-accent font-bold mr-2;
+}
+
+.typewriter-text {
+  @apply overflow-hidden whitespace-nowrap;
+  border-right: .15em solid transparent;
+}
+
+.cursor {
+  @apply bg-terminal-accent inline-block h-4 w-2 align-middle;
+}
+
+.blink {
+  @apply animate-cursor-blink;
+}
+
+@media (max-width: 640px) {
+  .terminal-body {
+    padding: 1rem;
   }
 }
