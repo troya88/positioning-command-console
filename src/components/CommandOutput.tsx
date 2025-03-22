@@ -41,12 +41,12 @@ const CommandOutput: React.FC<CommandOutputProps> = ({ command, output, isLatest
   }, [isLatest, output, isComplete, setIsTyping]);
 
   return (
-    <div ref={outputRef} className="mb-4">
-      <div className="command-line mb-2">
-        <span className="prompt">$</span>
-        <span className="text-terminal-foreground">{command}</span>
+    <div ref={outputRef} className="mb-6 command-output">
+      <div className="command-line px-3 py-2 rounded-t-md bg-terminal-command-bg border-l-2 border-t border-r border-terminal-accent/40">
+        <span className="prompt text-terminal-accent font-bold mr-2">$</span>
+        <span className="text-terminal-command font-semibold">{command}</span>
       </div>
-      <div className="pl-6">
+      <div className="command-result bg-terminal-result-bg border border-t-0 border-terminal-border rounded-b-md px-4 py-3">
         {typeof output === 'string' ? (
           <div className="animate-text-fade-in">{displayText}</div>
         ) : (

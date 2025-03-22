@@ -133,6 +133,31 @@
   @apply animate-cursor-blink;
 }
 
+/* New styles for improved command display */
+.command-output {
+  @apply transition-all duration-200;
+}
+
+.command-output:hover {
+  @apply transform translate-x-1;
+}
+
+.command-result {
+  @apply text-terminal-foreground/90;
+}
+
+.command-item {
+  @apply mb-1 px-2 py-1 rounded hover:bg-terminal-command-bg/30 transition-colors;
+}
+
+.terminal-input {
+  @apply bg-terminal-command-bg/40 border border-terminal-border rounded-md my-4;
+}
+
+.welcome-banner {
+  background: linear-gradient(to bottom right, rgba(74, 222, 128, 0.05), rgba(0, 0, 0, 0));
+}
+
 @media (max-width: 640px) {
   .terminal-body {
     padding: 1rem;

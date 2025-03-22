@@ -59,7 +59,16 @@ const config = {
           foreground: "#f0f0f0",
           muted: "#a0a0a0",
           accent: "#4ade80",
-          error: "#f87171"
+          error: "#f87171",
+          border: "#2c2c2c",
+          command: {
+            bg: "#1a1a1a",
+            text: "#e2e2e2",
+            highlight: "#4ade80",
+          },
+          result: {
+            bg: "#171717",
+          }
         }
       },
       borderRadius: {
