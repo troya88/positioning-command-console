@@ -36,7 +36,7 @@ const CommandInput: React.FC = () => {
     if (e.key === 'ArrowUp') {
       e.preventDefault();
       if (suggestions.length > 0 && selectedSuggestion < suggestions.length - 1) {
-        // Using direct value assignment
+        // Fix: Directly set the value instead of using a function
         setSelectedSuggestion(selectedSuggestion + 1);
       } else if (historyIndex < history.length - 1) {
         const newIndex = historyIndex + 1;
@@ -47,7 +47,7 @@ const CommandInput: React.FC = () => {
     else if (e.key === 'ArrowDown') {
       e.preventDefault();
       if (selectedSuggestion > 0) {
-        // Using direct value assignment
+        // Fix: Directly set the value instead of using a function
         setSelectedSuggestion(selectedSuggestion - 1);
       } else if (selectedSuggestion === 0) {
         setSelectedSuggestion(-1);

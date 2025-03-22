@@ -58,7 +58,7 @@ const Terminal: React.FC = () => {
       default:
         output = (
           <p className="text-terminal-error">
-            Command not found: <span className="font-bold">{command}</span>. Type <span className="text-terminal-command-highlight font-mono">help</span> for available commands.
+            Command not found: {command}. Type 'help' for available commands.
           </p>
         );
     }
@@ -99,43 +99,16 @@ const Terminal: React.FC = () => {
       </div>
       
       <div className="terminal-body" ref={terminalBodyRef}>
-        <div className="welcome-banner glass-panel mb-8 p-4 rounded-md border-l-4 border-terminal-accent">
-          <h1 className="text-2xl font-bold text-terminal-accent mb-2">
+        <div className="mb-6">
+          <h1 className="text-2xl font-bold text-terminal-accent mb-1">
             Positioning Command Center
           </h1>
-          <p className="text-terminal-foreground/90 mb-3">
+          <p className="text-terminal-foreground/70 mb-3">
             Troy Assoignon's Interactive Positioning Terminal
           </p>
-          
-          <div className="available-commands mt-4 mb-2">
-            <p className="text-terminal-muted mb-2">Available commands:</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              <div className="command-item">
-                <span className="text-terminal-command-highlight font-mono">help</span>
-                <span className="text-terminal-muted ml-2">- List all commands</span>
-              </div>
-              <div className="command-item">
-                <span className="text-terminal-command-highlight font-mono">about</span>
-                <span className="text-terminal-muted ml-2">- About Troy</span>
-              </div>
-              <div className="command-item">
-                <span className="text-terminal-command-highlight font-mono">assessment</span>
-                <span className="text-terminal-muted ml-2">- Start positioning assessment</span>
-              </div>
-              <div className="command-item">
-                <span className="text-terminal-command-highlight font-mono">explore</span>
-                <span className="text-terminal-muted ml-2">- Browse case studies</span>
-              </div>
-              <div className="command-item">
-                <span className="text-terminal-command-highlight font-mono">calculate</span>
-                <span className="text-terminal-muted ml-2">- Revenue growth calculator</span>
-              </div>
-              <div className="command-item">
-                <span className="text-terminal-command-highlight font-mono">clear</span>
-                <span className="text-terminal-muted ml-2">- Clear terminal</span>
-              </div>
-            </div>
-          </div>
+          <p className="text-terminal-muted">
+            Type 'help' for available commands or 'about' for more information.
+          </p>
         </div>
 
         {history.map((item) => (
