@@ -36,7 +36,8 @@ const CommandInput: React.FC = () => {
     if (e.key === 'ArrowUp') {
       e.preventDefault();
       if (suggestions.length > 0 && selectedSuggestion < suggestions.length - 1) {
-        setSelectedSuggestion(prev => prev + 1);
+        // Fix: Directly set the value instead of using a function
+        setSelectedSuggestion(selectedSuggestion + 1);
       } else if (historyIndex < history.length - 1) {
         const newIndex = historyIndex + 1;
         setHistoryIndex(newIndex);
@@ -46,7 +47,8 @@ const CommandInput: React.FC = () => {
     else if (e.key === 'ArrowDown') {
       e.preventDefault();
       if (selectedSuggestion > 0) {
-        setSelectedSuggestion(prev => prev - 1);
+        // Fix: Directly set the value instead of using a function
+        setSelectedSuggestion(selectedSuggestion - 1);
       } else if (selectedSuggestion === 0) {
         setSelectedSuggestion(-1);
         setSuggestions(getSuggestions(commandInput));
